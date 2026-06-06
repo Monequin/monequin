@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<!-- progressive-enhancement flag: if this runs, animations are enabled; if scripts are blocked, content stays fully visible -->
+<script>document.documentElement.classList.add('js');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Monequin — The Emmeline Set · Edition 01</title>
+<meta name="description" content="Monequin — The Emmeline Set, Edition 01. A limited, numbered event set fit to you: order your top and skirt in different sizes. Australian, ethically made. A portion of every sale supports women's rights." />
+
+<!-- ===== SOCIAL PREVIEW (how the link looks shared on Instagram) ===== -->
+<meta property="og:title" content="Monequin — The Emmeline Set · Edition 01" />
+<meta property="og:description" content="A limited, numbered edition — fit to you. Australian, ethically made. A portion of every sale supports women's rights." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="images/hero.jpg" />
+
+<!-- ===== FAVICON (clean monogram, not a photo) ===== -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231A1A1A'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='Georgia, serif' font-style='italic' font-size='42' fill='%23F2EFE9'%3Em%3C/text%3E%3C/svg%3E" />
+
+<!-- ===== FONTS ===== -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet" />
+
+<!-- ====================================================================== -->
+<!-- ===  GOOGLE ANALYTICS 4 — Find & Replace every G-XXXXXXXXXX (×3)   === -->
+<!-- ====================================================================== -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<style>
+/* ===== palette: black · white · subtle cream (the photo is the only colour) ===== */
+:root{
+  --ink:#1A1A1A;
+  --paper:#FCFBF8;
+  --cream:#F2EFE9;
+  --cream-deep:#E8E3D9;
+  --muted:#7A736A;
+  --line:#E0DACE;
+  --on-dark:#D9D2C6;     /* soft cream used on the black sections */
+  --red:#A11B33;         /* crimson accent (back, used sparingly) */
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden;width:100%}            /* no horizontal scrollbar; vertical scroll allowed */
+body{font-family:'Jost',sans-serif;color:var(--ink);background:var(--cream);-webkit-font-smoothing:antialiased;line-height:1.6}
+img{display:block}
+a{color:inherit;text-decoration:none}
+.serif{font-family:'Cormorant Garamond',serif}
+
+/* ============================ TOP BAR ============================ */
+.bar{
+  position:absolute;top:0;left:0;right:0;z-index:30;     /* absolute → it scrolls away with the page */
+  display:flex;align-items:center;justify-content:space-between;
+  padding:clamp(1.1rem,3vw,1.7rem) clamp(1.2rem,4vw,2.6rem);
+  color:var(--ink);
+}
+.bar .mini{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;font-weight:400;color:var(--ink);text-shadow:0 1px 6px rgba(252,251,248,.9);transition:opacity .3s}
+.bar a.mini:hover{opacity:.55}
+@media(max-width:560px){
+  .bar .hide-sm{display:none}
+  .hero__overlay{right:1rem;max-width:72%}
+}
+
+/* ============================ HERO (full width, whole image) ============================ */
+.hero{position:relative;width:100%;background:var(--cream);min-height:60vh}
+.hero__photo{width:100%;height:auto;display:block}      /* fills the frame edge-to-edge, whole image, no borders */
+.js .hero__photo{opacity:0;animation:fadeImg 1.4s var(--ease) .15s forwards}
+@keyframes fadeImg{to{opacity:1}}
+.hero.is-missing .hero__photo{display:none}
+.hero.is-missing{min-height:100svh;background:radial-gradient(120% 120% at 50% 25%,#444,var(--ink) 70%)}
+
+/* overlay floats in the white seam in the MIDDLE — soft CREAM lift (no black bar), dark text kept off the garment */
+.hero__overlay{
+  position:absolute;top:30%;right:clamp(1.2rem,5vw,4.5rem);left:auto;transform:translateY(-50%);
+  z-index:3;text-align:right;color:var(--ink);max-width:min(52%,520px);
+  will-change:opacity,transform;
+}
+.hero__caption{font-size:.7rem;letter-spacing:.34em;text-transform:uppercase;color:var(--ink);margin-bottom:.8rem;text-shadow:0 1px 6px rgba(252,251,248,.85)}
+.hero__caption .sep{color:var(--red);margin-inline:.6em}
+.wordmark{
+  font-family:'Cormorant Garamond',serif;font-weight:400;text-transform:uppercase;
+  font-size:clamp(2rem,6.5vw,4.6rem);line-height:1;letter-spacing:.08em;color:var(--ink);
+  text-shadow:0 1px 6px rgba(252,251,248,.85);
+}
+.hero__cta{margin-top:1.2rem}
+
+.scrollcue{position:fixed;left:50%;bottom:1.1rem;transform:translateX(-50%);z-index:20;color:#fff;mix-blend-mode:difference;
+  font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:.5rem;transition:opacity .5s}
+.scrollcue .line{width:1px;height:30px;background:linear-gradient(#fff,transparent);animation:drop 1.8s var(--ease) infinite}
+@keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+.ph-note{position:absolute;inset:0;z-index:2;display:none;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;color:var(--on-dark);text-align:center}
+.hero.is-missing .ph-note{display:flex}
+.ph-note svg{width:54px;height:54px}
+.ph-note .file{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;background:rgba(255,255,255,.12);padding:.5em 1em;border-radius:100px;border:1px solid rgba(255,255,255,.25)}
+
+/* ============================ BUTTONS ============================ */
+.btn{display:inline-flex;align-items:center;gap:.7em;cursor:pointer;font-family:'Jost';font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;padding:1.05em 2.5em;border-radius:100px;transition:.45s var(--ease)}
+.btn .arrow{transition:transform .45s var(--ease)}
+.btn:hover .arrow{transform:translateX(5px)}
+.btn--light{background:var(--paper);color:var(--ink);border:1px solid var(--paper)}
+.btn--light:hover{background:var(--red);color:#fff;border-color:var(--red)}
+.btn--dark{background:var(--ink);color:var(--paper);border:1px solid var(--ink)}
+.btn--dark:hover{background:var(--red);color:#fff;border-color:var(--red)}
+
+/* ============================ SECTIONS ============================ */
+section.block{padding:clamp(5rem,15vh,10rem) clamp(1.4rem,6vw,2rem)}
+.center{max-width:760px;margin-inline:auto;text-align:center}
+.eyebrow{font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;color:var(--muted)}
+
+.statement{background:var(--cream)}
+.statement h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,6vw,4rem);line-height:1.12;margin-top:1.4rem}
+.statement h2 em{font-style:italic;color:var(--red)}
+.rotator{display:block;height:1.18em;overflow:hidden;color:var(--red);font-style:italic}
+.rotator span{display:block;transition:transform .55s var(--ease),opacity .55s var(--ease)}
+
+.set{background:var(--paper)}
+.set .name{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(2.4rem,6vw,4rem);margin:.6rem 0 1.2rem}
+.set p.desc{color:var(--muted);font-size:1.08rem;max-width:50ch;margin:0 auto 2.2rem}
+.set p.desc em{font-style:italic;color:var(--red)}
+.set .specs{display:flex;justify-content:center;flex-wrap:wrap;gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:0 auto 2.2rem;max-width:760px}
+.set .spec{flex:1 1 0;min-width:160px;padding:1.5rem 1rem}
+.set .spec b{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.3rem;display:block;color:var(--ink);font-weight:500}
+.set .spec span{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.set .price{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:500;margin-bottom:.2rem}
+.set .price small{display:block;font-family:'Jost';font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem}
+
+.mission{background:var(--cream-deep);text-align:center}
+.mission .center{max-width:660px}
+.mission .mark{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.6rem;color:var(--red);margin-bottom:1rem}
+.mission p{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(1.4rem,3.4vw,2rem);line-height:1.35;color:var(--ink)}
+.mission .sub{font-family:'Jost';font-size:.95rem;line-height:1.6;color:var(--muted);max-width:48ch;margin:1.4rem auto 0}
+
+/* the black section she loves — kept dark */
+.finale{background:var(--ink);color:var(--paper)}
+.finale .eyebrow{color:var(--on-dark)}
+.finale h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.2rem,6vw,4.2rem);line-height:1.08;margin:1rem 0 1.4rem}
+.finale p{color:#bdb6ab;max-width:44ch;margin:0 auto 2.4rem}
+.finale .logo-script{font-family:'Pinyon Script',cursive;font-size:3rem;margin-bottom:1.2rem;color:var(--on-dark)}
+
+.foot{background:var(--ink);color:#8a8278;text-align:center;padding:2.2rem 1.4rem 3rem;border-top:1px solid #2e2e2e}
+.foot a{color:var(--on-dark)}
+.foot .row{display:flex;justify-content:center;gap:1.4rem;flex-wrap:wrap;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.9rem}
+
+/* ============================ SCROLL REVEAL ============================ */
+.fx{opacity:1}
+.js .fx{opacity:0;transform:translateY(30px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.js .fx.in{opacity:1;transform:none}
+.js .d1{transition-delay:.12s}.js .d2{transition-delay:.24s}.js .d3{transition-delay:.36s}
+</style>
+</head>
+<body>
+
+<!-- ============================ TOP BAR ============================ -->
+<header class="bar">
+  <a href="https://instagram.com/monequin_" target="_blank" rel="noopener" class="mini">@monequin_</a>
+  <span class="mini hide-sm">Edition 01 — Summer ’26</span>
+</header>
+
+<!-- ============================ HERO ============================ -->
+<section class="hero" id="hero">
+  <img class="hero__photo" src="images/hero.jpg" alt="The Emmeline Set by Monequin"
+       onerror="document.getElementById('hero').classList.add('is-missing')" />
+
+  <div class="ph-note">
+    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M32 6c4 0 5 4 5 7s-2 4-2 7c5 2 9 6 11 13l-7 3 1 19H24l1-19-7-3c2-7 6-11 11-13 0-3-2-4-2-7s1-7 5-7Z"/></svg>
+    <span class="serif" style="font-style:italic;font-size:1.3rem">Save your hero photo as</span>
+    <span class="file">images/hero.jpg</span>
+  </div>
+
+  <div class="hero__overlay" id="heroOverlay">
+    <div class="hero__caption">The Emmeline Set <span class="sep">✦</span> Edition 01</div>
+    <div class="wordmark">monequin</div>
+    <div class="hero__cta">
+      <a class="btn btn--dark js-buy" data-loc="hero" href="#" target="_blank" rel="noopener">Buy Now <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<div class="scrollcue" id="scrollcue"><span>Scroll</span><span class="line"></span></div>
+
+<!-- ============================ STATEMENT ============================ -->
+<section class="block statement">
+  <div class="center">
+    <span class="eyebrow fx">Monequin — Edition 01</span>
+    <h2 class="fx d1">An entrance, <em>by design.</em><br>
+      <span class="rotator"><span id="rot">Limited.</span></span>
+    </h2>
+  </div>
+</section>
+
+<!-- ============================ THE SET ============================ -->
+<section class="block set">
+  <div class="center">
+    <span class="eyebrow fx">Edition 01 — The Debut</span>
+    <h3 class="name fx d1">The Emmeline Set</h3>
+    <p class="desc fx d1">A tied bandeau and a tiered pleated skirt in deep crimson and gold, tailored in crisp poplin cotton. Order your top and skirt in two <em>different sizes</em> for a fit that’s truly yours — then wear them together, or restyle each piece on its own.</p>
+    <div class="specs fx d2">
+      <div class="spec"><b>Two sizes, one set</b><span>Top &amp; skirt sized separately — a real fit</span></div>
+      <div class="spec"><b>Poplin cotton</b><span>Crisp, breathable, beautifully structured</span></div>
+      <div class="spec"><b>Ethically made</b><span>Australian, ethically manufactured</span></div>
+      <div class="spec"><b>Edition 01</b><span>A limited run — each piece numbered</span></div>
+    </div>
+    <div class="price fx d2">$250 <small>AUD · Limited first run · Each piece numbered</small></div>
+    <a class="btn btn--dark js-buy fx d3" data-loc="set" href="#" target="_blank" rel="noopener">Buy Now <span class="arrow">→</span></a>
+  </div>
+</section>
+
+<!-- ============================ MISSION ============================ -->
+<section class="block mission">
+  <div class="center">
+    <div class="mark fx">✦</div>
+    <p class="fx d1">Made for women — and built to give back to them.</p>
+    <p class="sub fx d1">Every Emmeline Set is Australian-made under fair, ethical conditions, and a portion of every sale is donated to a charity supporting women’s rights. When you wear Monequin, you’re part of something bigger than a single look.</p>
+  </div>
+</section>
+
+<!-- ============================ FINALE (the dark section) ============================ -->
+<section class="block finale">
+  <div class="center">
+    <div class="logo-script fx">monequin</div>
+    <span class="eyebrow fx">A limited first run</span>
+    <h2 class="fx d1">Be the only one wearing it.</h2>
+    <p class="fx d1">The Emmeline Set is Edition 01 — a limited run, each piece numbered, made for the woman who never wants to be a repeat. Reserve yours before it’s gone.</p>
+    <a class="btn btn--light js-buy fx d2" data-loc="finale" href="#" target="_blank" rel="noopener">Buy Now <span class="arrow">→</span></a>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="row">
+    <a href="https://instagram.com/monequin_" target="_blank" rel="noopener">@monequin_</a>
+    <span>Premium event sets · Australian, ethically made</span>
+  </div>
+  <div style="font-size:.72rem;letter-spacing:.1em">A portion of every sale supports women’s rights · © <span id="yr"></span> Monequin</div>
+</footer>
+
+<script>
+/* ====================================================================== */
+/* ==================  ⚙️  CONFIG — EDIT THIS 1 LINE  =================== */
+/* ====================================================================== */
+
+/* Your Google Form share link (ends in /viewform). Both Buy Now buttons open it.
+   See LAUNCH GUIDE step 2 for where to copy it from. */
+const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/PASTE_YOUR_FORM_ID/viewform";
+
+/* (Google Analytics ID is set up top in the <head>.) */
+/* ====================================================================== */
+
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* ---- safe GA event helper ---- */
+function track(name, params){ if (typeof gtag === 'function'){ gtag('event', name, params || {}); } }
+
+/* ---- BUY NOW → open the Google Form (and fire GA 'buy_now_click') ---- */
+const configured = !GOOGLE_FORM_URL.includes('PASTE_YOUR_FORM_ID');
+document.querySelectorAll('.js-buy').forEach(btn => {
+  if (configured) btn.href = GOOGLE_FORM_URL;
+  btn.addEventListener('click', (e) => {
+    track('buy_now_click', { location: btn.dataset.loc || 'unknown' });
+    if (!configured){ e.preventDefault(); console.warn('⚠️ Google Form not set yet — paste your link into GOOGLE_FORM_URL at the top of <script>.'); }
+  });
+});
+
+/* ---- entrance fade-in for scroll sections ---- */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(en => { if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+}, {threshold:.16});
+document.querySelectorAll('.fx').forEach(el => io.observe(el));
+
+/* ---- hero text drifts up + fades as you scroll past it ---- */
+const overlay = document.getElementById('heroOverlay');
+const cue = document.getElementById('scrollcue');
+const hero = document.getElementById('hero');
+let ticking = false;
+function onScroll(){
+  if (ticking) return; ticking = true;
+  requestAnimationFrame(() => {
+    const vh = window.innerHeight;
+    const heroH = hero.offsetHeight || vh;
+    const centerVP = heroH * 0.30 - window.scrollY;    // overlay sits in the upper third (off the white seam)
+    // stay fully visible while in view; fade + drift only as it rises into the top quarter
+    let p = (vh * 0.25 - centerVP) / (vh * 0.25);
+    p = Math.min(Math.max(p, 0), 1);
+    overlay.style.opacity = String(1 - p);
+    overlay.style.transform = `translateY(-50%) translateY(${-p*60}px)`;
+    cue.style.opacity = window.scrollY > 40 ? '0' : '0.85';
+    ticking = false;
+  });
+}
+addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+/* ---- rotating tagline: Limited · Unique · Premium ---- */
+const lines = ['Limited.', 'Unique.', 'Premium.', 'Yours alone.'];
+let li = 0; const rot = document.getElementById('rot');
+setInterval(() => {
+  li = (li + 1) % lines.length;
+  rot.style.opacity = 0; rot.style.transform = 'translateY(-9px)';
+  setTimeout(() => { rot.textContent = lines[li]; rot.style.opacity = 1; rot.style.transform = 'none'; }, 320);
+}, 2600);
+</script>
+</body>
+</html>
